@@ -22,13 +22,6 @@ for (let i = 0; i < 150; i++){
     realCtx.fillRect(x, y, 4, height);
     x = x + 7.5
 }
-// ctx.fillStyle = '#06B520'
-// ctx.fillRect(100, 100, 3, 100);
-// ctx.fillStyle = '#06B520'
-// ctx.fillRect(100, 100, 100, 20);
-// ctx.fillText("sd")
-
-
 
 //--------Function to Play and Pause Music----------
 let music = document.getElementById('music');
