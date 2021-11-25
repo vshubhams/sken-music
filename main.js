@@ -1,8 +1,12 @@
 
 let canvas = document.getElementById('canvas');
-let ctx = canvas.getContext('2d');
+let realCanvas = document.getElementById('realCanvas');
+let [canvaBox] = document.getElementsByClassName('canvaBox')
 
+let ctx = canvas.getContext('2d');
+let realCtx = realCanvas.getContext('2d');
 ctx.fillStyle = "#ccc";
+realCtx.fillStyle = "#D99EAB";
 
 let x = 0;
 for (let i = 0; i < 150; i++){
@@ -15,11 +19,11 @@ for (let i = 0; i < 150; i++){
     }
     
     ctx.fillRect(x, y, 4, height);
+    realCtx.fillRect(x, y, 4, height);
     x = x + 7.5
 }
 
 //--------Function to Play and Pause Music----------
-
 let music = document.getElementById('music');
 let playBtn = document.getElementById('palyBtn');
 playBtn.addEventListener('click', playMusic);
@@ -34,4 +38,23 @@ function playMusic() {
         music.pause();
         playBtn.innerHTML = 'play_arrow';
     }
+}
+
+let inputRange = document.getElementById('audioRange') 
+
+inputRange.addEventListener('change', (e) => {
+    const currentRange = e.target.value;
+    let duration = music.duration;
+    let updatedTime = (duration / 100) * currentRange;
+    
+    console.log('duration:', duration)
+    music.currentTime = updatedTime;
+});
+
+music.ontimeupdate = function (e) {
+    let currentTime = e.target.currentTime
+    let duration = e.target.duration
+    let caluculatePercentage = ((currentTime / duration) * 100).toFixed(2);
+
+    canvaBox.style.width = `${caluculatePercentage}%`
 }
