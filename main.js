@@ -22,6 +22,13 @@ for (let i = 0; i < 150; i++){
     realCtx.fillRect(x, y, 4, height);
     x = x + 7.5
 }
+// ctx.fillStyle = '#06B520'
+// ctx.fillRect(100, 100, 3, 100);
+// ctx.fillStyle = '#06B520'
+// ctx.fillRect(100, 100, 100, 20);
+// ctx.fillText("sd")
+
+
 
 //--------Function to Play and Pause Music----------
 let music = document.getElementById('music');
@@ -41,7 +48,6 @@ function playMusic() {
 }
 
 let inputRange = document.getElementById('audioRange') 
-
 inputRange.addEventListener('change', (e) => {
     const currentRange = e.target.value;
     let duration = music.duration;
@@ -62,8 +68,8 @@ music.onended = function () {
     playMusic();
 }
 
-let sound = document.getElementById('volume');
 
+let sound = document.getElementById('volume');
 sound.addEventListener('click', soundChange);
 function soundChange() {
     if (sound.innerText=='volume_up') {
