@@ -58,3 +58,20 @@ music.ontimeupdate = function (e) {
 
     canvaBox.style.width = `${caluculatePercentage}%`
 }
+music.onended = function () {
+    playMusic();
+}
+
+let sound = document.getElementById('volume');
+
+sound.addEventListener('click', soundChange);
+function soundChange() {
+    if (sound.innerText=='volume_up') {
+        music.muted = true;
+        sound.innerText='volume_off'
+    }
+    else {
+        music.muted = false;
+        sound.innerText='volume_up'
+    }
+}
