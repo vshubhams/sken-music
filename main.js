@@ -17,3 +17,21 @@ for (let i = 0; i < 150; i++){
     ctx.fillRect(x, y, 4, height);
     x = x + 7.5
 }
+
+//--------Function to Play and Pause Music----------
+
+let music = document.getElementById('music');
+let playBtn = document.getElementById('palyBtn');
+playBtn.addEventListener('click', playMusic);
+
+function playMusic() {
+    if (playBtn.innerHTML == 'play_arrow') {
+        music.play();
+        playBtn.innerHTML = "pause";
+
+    }
+    else {
+        music.pause();
+        playBtn.innerHTML = 'play_arrow';
+    }
+}
