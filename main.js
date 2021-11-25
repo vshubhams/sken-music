@@ -46,7 +46,6 @@ inputRange.addEventListener('change', (e) => {
     let duration = music.duration;
     let updatedTime = (duration / 100) * currentRange;
     
-    console.log('duration:', duration)
     music.currentTime = updatedTime;
 });
 
@@ -73,4 +72,13 @@ function soundChange() {
         music.muted = false;
         sound.innerText='volume_up'
     }
+}
+
+let fastForward = document.getElementById('fastFrBtn');
+
+fastForward.addEventListener('click', skipTime);
+function skipTime() {
+    let currTime = music.currentTime;
+    music.currentTime = currTime + 10;
+    
 }
